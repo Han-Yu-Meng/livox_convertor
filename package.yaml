@@ -1,4 +1,4 @@
-name: "livox_convertor"
+name: "livox_converter"
 version: "0.1.0"
 description: "Convert between livox_driver2 and livox_ros_driver2"
 maintainers:

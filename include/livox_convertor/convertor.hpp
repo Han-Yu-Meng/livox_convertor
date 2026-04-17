@@ -7,20 +7,13 @@
 #include <memory>
 #include <cstdint>
 
-/**
- * @brief Namespace for livox_convertor driver
- * This driver handles conversion between livox_driver2 and livox_ros_driver2 formats.
- */
 
-namespace livox_convertor {
+namespace livox_converter {
 
 using fins::Function;
 using fins::Input;
 using fins::Output;
 
-/**
- * @brief Conversion from livox_ros_driver2::msg::CustomMsg to internal CustomMsg.
- */
 static auto livox_to_internal_node = Function("fromROS",
   [](Input<livox_ros_driver2::msg::CustomMsg> &msg_in,
      Output<livox_driver2::msg::CustomMsg> &msg_out) {
@@ -49,9 +42,6 @@ static auto livox_to_internal_node = Function("fromROS",
  .with_category("Livox")
  .build();
 
-/**
- * @brief Conversion from internal CustomMsg to livox_ros_driver2::msg::CustomMsg.
- */
 static auto internal_to_livox_node = Function("toROS",
   [](Input<livox_driver2::msg::CustomMsg> &msg_in,
      Output<livox_ros_driver2::msg::CustomMsg> &msg_out) {
@@ -80,4 +70,4 @@ static auto internal_to_livox_node = Function("toROS",
  .with_category("Livox")
  .build();
 
-} // namespace livox_convertor
+} // namespace livox_converter
